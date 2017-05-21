@@ -1,5 +1,10 @@
-require 'rails_helper'
+# require 'rails_helper'
+require_relative '../../app/models/user'
 
-RSpec.describe User, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+RSpec.describe User do
+  context "add 2 normal int" do
+	  it "should be true result" do
+			expect(User.new.add(2, 3)).to eq 5	
+	  end
+	end
 end
