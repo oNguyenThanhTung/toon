@@ -3,7 +3,7 @@ require 'active_support/core_ext/string'
 rails_env = ENV["RAILS_ENV"] || "production"
 num_workers = ENV["NUM_UNICORN_WORKERS"]
 worker_processes (num_workers ? num_workers.to_i : 3)
-app_name = ENV["REPO_URL"].split("/").last.gsub(".git","").underscore.camelize
+app_name = ENV["REPO_URL"].present? ? ENV["REPO_URL"].split("/").last.gsub(".git","").underscore.camelize : "Get_source_code"
 
 app_directory = "/usr/local/rails_apps/#{app_name}/current"
 working_directory app_directory # available in 0.94.0+
